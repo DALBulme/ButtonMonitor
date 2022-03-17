@@ -28,7 +28,7 @@ Widget::Widget(QWidget *parent)
     }
 
     // initialize hardware
-    m_gpio = new gpio();
+    m_gpio = new gpio(this);
 
     m_timer = new QTimer(this);
     // Connect QTimer (Signal) with GUI function (Slot) "update display"

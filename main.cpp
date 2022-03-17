@@ -1,11 +1,21 @@
 #include "widget.h"
 #include <QApplication>
+#include <QDebug>
+#include <QMessageBox>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Widget w;
-    w.show();
+    try {
+        Widget w;
+        w.show();
+        return a.exec();
+    }
+    catch (const char* msg) {
+        QMessageBox msgBox;
+        msgBox.setText(msg);
+        msgBox.exec();
 
-    return a.exec();
+        a.quit();
+    }
 }
